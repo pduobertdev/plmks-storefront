@@ -195,7 +195,7 @@ export function SiteNav({
 
 const LANG_OPTIONS: { id: Lang; flag: string; label: string }[] = [
   { id: 'en', flag: '🇺🇸', label: 'EN' },
-  { id: 'es', flag: '🇵🇪', label: 'ES' },
+  { id: 'es', flag: '🇪🇸', label: 'ES' },
 ];
 
 function LangToggle({ lang, setLang }: { lang: Lang; setLang: (l: Lang) => void }) {

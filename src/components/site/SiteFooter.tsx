@@ -122,7 +122,7 @@ export function SiteFooter({ lang }: { lang: Lang }) {
               {lang === 'en' ? 'Refunds' : 'Reembolsos'}
             </a>
             <a
-              href="https://example.com/admin"
+              href="/admin"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-cream/70 transition-colors"

@@ -376,9 +376,9 @@ function Carta({ lang }: { lang: 'en' | 'es' }) {
       <div className="mx-auto max-w-[1320px] px-5 sm:px-8 mt-14 sm:mt-20">
         <div className="flex items-end justify-between gap-6 flex-wrap">
           <div>
-            <SectionTag label={lang === 'en' ? 'The Carta' : 'La Carta'} dark />
+            <SectionTag label={lang === 'en' ? 'The Menu' : 'La Carta'} dark />
             <h2 className="display mt-4 text-[clamp(2.2rem,5vw,3.9rem)] font-semibold">
-              {lang === 'en' ? 'Twelve ways to eat well' : 'Doce maneras de comer bien'}
+              {lang === 'en' ? 'So many ways to eat well' : 'Muchas maneras de comer bien'}
             </h2>
           </div>
           <p className="max-w-xs text-cream/60 text-[0.96rem]">
@@ -424,7 +424,7 @@ function Carta({ lang }: { lang: 'en' | 'es' }) {
             href={href('menu')}
             className="group inline-flex items-center gap-3 rounded-full border border-cream/30 px-7 py-4 font-semibold tracking-wide transition-colors duration-300 hover:bg-aji hover:text-ink hover:border-aji"
           >
-            {lang === 'en' ? 'See the full carta — 12 sections' : 'Ver la carta completa — 12 secciones'}
+            {lang === 'en' ? 'See the full menu' : 'Ver la carta completa'}
             <span className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden>→</span>
           </a>
         </div>
@@ -447,7 +447,7 @@ function Reviews({ lang }: { lang: 'en' | 'es' }) {
           <div className="mt-3 flex items-center justify-center gap-1.5 text-aji">
             {[0, 1, 2, 3, 4].map((i) => <Star key={i} />)}
             <span className="ml-2 text-ink-mute text-[0.9rem]">
-              {lang === 'en' ? 'two decades of regulars' : 'dos décadas de clientes fieles'}
+              {lang === 'en' ? 'a neighborhood of regulars' : 'un vecindario de clientes fieles'}
             </span>
           </div>
         </div>

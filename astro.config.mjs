@@ -6,7 +6,7 @@ import tailwindcss from '@tailwindcss/vite';
 // subpath preview (plmks.on-forge.com/plmks-storefront/) and for a top-level
 // staging domain (perustaste.on-forge.com → '/').
 // NOTE: when set in a deploy.<target>.env, it MUST match the served path.
-const BASE = process.env.ASTRO_BASE ?? '/plmks-storefront/';
+const BASE = process.env.ASTRO_BASE ?? '/'; // template default: served at the domain root on every clone
 
 export default defineConfig({
   site: process.env.ASTRO_SITE ?? 'https://example.com',

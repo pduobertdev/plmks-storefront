@@ -211,6 +211,9 @@ export async function fetchStoreHours(): Promise<{ week: (StoreHoursRow | null)[
     if (!res.ok) return null;
     const h = (await res.json())?.data?.store?.hours;
     if (!h || !Array.isArray(h.week)) return null;
+    // All-null week = hours never configured in Store Settings (backend treats
+    // that as open). Show the template placeholder instead of "Closed" all week.
+    if (!h.week.some(Boolean) && !(h.holidays ?? []).length) return null;
     return {
       week: h.week,
       holidays: Array.isArray(h.holidays) ? h.holidays : [],

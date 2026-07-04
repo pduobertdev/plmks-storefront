@@ -1,0 +1,12 @@
+# Production robots — applies once example.com goes live.
+# The preview host (plmks-storefront.on-forge.com) ships with its own
+# X-Robots-Tag: noindex header set in nginx, so this file is ignored
+# there. See deploy.env for the preview-host noindex config.
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /ptnotes/
+
+Sitemap: https://example.com/sitemap.xml

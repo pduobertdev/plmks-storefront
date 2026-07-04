@@ -1,0 +1,12 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Account from '../components/site/Account';
+---
+
+<Layout
+  title="Your account · Sample Bistro"
+  description="Sign in to see past orders, saved addresses, favorites, and coupons at Sample Bistro."
+  path="/account"
+>
+  <Account client:load />
+</Layout>

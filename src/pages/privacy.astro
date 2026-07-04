@@ -1,0 +1,93 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { SiteNav } from '../components/site/SiteNav.tsx';
+import { SiteFooter } from '../components/site/SiteFooter.tsx';
+import { Cenefa } from '../components/Cenefa.tsx';
+---
+
+<Layout
+  title="Privacy Policy — Sample Bistro"
+  description="How Sample Bistro collects, uses, and protects your information when you order online or contact us."
+>
+  <SiteNav client:load />
+
+  <main class="px-6 py-16 sm:py-24">
+    <article class="mx-auto max-w-2xl text-ink">
+      <p class="kicker text-ladrillo">Legal</p>
+      <h1 class="display text-[clamp(2.4rem,6vw,4rem)] font-semibold leading-[1.05] mt-3">Privacy Policy</h1>
+      <p class="text-ink-mute mt-3 text-[0.95rem]">Last updated June 27, 2026</p>
+
+      <div class="mt-10 max-w-md opacity-50"><Cenefa weight={1.4} client:visible /></div>
+
+      <div class="prose-content mt-10 space-y-7 text-[1rem] leading-relaxed text-ink-soft">
+        <section>
+          <h2 class="font-display text-[1.4rem] font-semibold text-ink">Who we are</h2>
+          <p>Sample Bistro is a family-owned neighborhood restaurant at 123 Main Street, Anytown, CA 90000. This policy explains what information we collect when you visit our website or place an order, and how we use it.</p>
+        </section>
+
+        <section>
+          <h2 class="font-display text-[1.4rem] font-semibold text-ink">What we collect</h2>
+          <p>When you place an order online, we collect your name, email, phone number, and (for delivery) your address. Payment information is collected and processed by our payment processor (Authorize.net) — we never see or store full card numbers. We retain the brand and last 4 digits for receipt purposes.</p>
+          <p>When you contact us through the site or by phone, we keep your message and contact info long enough to respond and follow up.</p>
+          <p>We use standard server logs (IP address, browser, timestamps) for security and to keep the site running.</p>
+        </section>
+
+        <section>
+          <h2 class="font-display text-[1.4rem] font-semibold text-ink">How we use it</h2>
+          <ul class="list-disc pl-5 space-y-1.5">
+            <li>To prepare and deliver your order.</li>
+            <li>To send order confirmations and updates by email.</li>
+            <li>To share your address with DoorDash for delivery orders only.</li>
+            <li>To improve the site and respond to your questions.</li>
+          </ul>
+          <p>We don't sell your information. We don't share it with marketers.</p>
+        </section>
+
+        <section>
+          <h2 class="font-display text-[1.4rem] font-semibold text-ink">Text messages (SMS)</h2>
+          <p>If you opt in to our order-alert text messages, we use your mobile number only to send you those order notifications. Message frequency varies — typically one message per online order. <strong>Message and data rates may apply.</strong> Reply <strong>STOP</strong> to unsubscribe or <strong>HELP</strong> for help at any time.</p>
+          <p><strong>We do not sell, rent, or share mobile numbers or SMS opt-in/consent data with any third party or affiliate for their marketing or promotional purposes.</strong> Text-messaging originator opt-in data and consent are not shared with any third parties.</p>
+        </section>
+
+        <section>
+          <h2 class="font-display text-[1.4rem] font-semibold text-ink">Service providers we use</h2>
+          <ul class="list-disc pl-5 space-y-1.5">
+            <li><strong>Authorize.net</strong> — payment processing.</li>
+            <li><strong>ShipDay</strong> + third-party couriers (DoorDash, Uber, others) — delivery dispatch (delivery orders only).</li>
+            <li><strong>Resend</strong> — sending order confirmation emails.</li>
+            <li><strong>DigitalOcean / Cloudflare</strong> — hosting and DNS.</li>
+          </ul>
+          <p>Each of them has their own privacy practices and uses your information only to provide their service to us.</p>
+        </section>
+
+        <section>
+          <h2 class="font-display text-[1.4rem] font-semibold text-ink">Cookies</h2>
+          <p>We use a small amount of browser storage to remember your language preference (English or Spanish). We don't use advertising cookies. If we add analytics later, it will be a privacy-friendly tool that doesn't track you across sites.</p>
+        </section>
+
+        <section>
+          <h2 class="font-display text-[1.4rem] font-semibold text-ink">Your rights</h2>
+          <p>If you're a California resident, you can ask us what information we have about you, ask us to delete it, or opt out of any sale of your information (we don't sell it, but you have the right to ask).</p>
+          <p>Email <a href="mailto:hello@example.com" class="text-ladrillo underline">hello@example.com</a> with the subject "Privacy request" and we'll respond within 30 days.</p>
+        </section>
+
+        <section>
+          <h2 class="font-display text-[1.4rem] font-semibold text-ink">Children</h2>
+          <p>This site isn't directed at children under 13, and we don't knowingly collect information from them.</p>
+        </section>
+
+        <section>
+          <h2 class="font-display text-[1.4rem] font-semibold text-ink">Updates</h2>
+          <p>If we change this policy in a meaningful way, we'll update the date at the top and post a notice on this page.</p>
+        </section>
+
+        <section>
+          <h2 class="font-display text-[1.4rem] font-semibold text-ink">Contact</h2>
+          <p>Sample Bistro<br>123 Main Street, Anytown, CA 90000<br>(000) 000-0000 · <a href="mailto:hello@example.com" class="text-ladrillo underline">hello@example.com</a></p>
+        </section>
+      </div>
+    </article>
+  </main>
+
+  <SiteFooter client:load />
+</Layout>

@@ -1,0 +1,65 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { SiteNav } from '../components/site/SiteNav.tsx';
+import { SiteFooter } from '../components/site/SiteFooter.tsx';
+import { Cenefa } from '../components/Cenefa.tsx';
+---
+
+<Layout
+  title="Refund Policy — Sample Bistro"
+  description="Our refund and remake policy for online orders at Sample Bistro."
+>
+  <SiteNav client:load />
+
+  <main class="px-6 py-16 sm:py-24">
+    <article class="mx-auto max-w-2xl text-ink">
+      <p class="kicker text-ladrillo">Legal</p>
+      <h1 class="display text-[clamp(2.4rem,6vw,4rem)] font-semibold leading-[1.05] mt-3">Refund Policy</h1>
+      <p class="text-ink-mute mt-3 text-[0.95rem]">Last updated June 9, 2026</p>
+
+      <div class="mt-10 max-w-md opacity-50"><Cenefa weight={1.4} client:visible /></div>
+
+      <div class="prose-content mt-10 space-y-7 text-[1rem] leading-relaxed text-ink-soft">
+        <section>
+          <h2 class="font-display text-[1.4rem] font-semibold text-ink">Our promise</h2>
+          <p>If something is wrong with your order, tell us within 24 hours and we'll make it right. We'd rather remake your food or refund you than leave a customer unhappy.</p>
+        </section>
+
+        <section>
+          <h2 class="font-display text-[1.4rem] font-semibold text-ink">If your food is wrong</h2>
+          <p>Wrong item, missing item, or quality issue — call (000) 000-0000 or email <a href="mailto:hello@example.com" class="text-ladrillo underline">hello@example.com</a> the same day. We'll offer a remake, a credit toward your next order, or a refund to the original payment method.</p>
+        </section>
+
+        <section>
+          <h2 class="font-display text-[1.4rem] font-semibold text-ink">If you need to cancel</h2>
+          <p>Pickup orders: you can cancel for a full refund anytime before we've started cooking. Call us as soon as possible.</p>
+          <p>Delivery orders: once a courier has been dispatched, the delivery fee is no longer refundable, but we can still cancel the food itself if cooking hasn't started.</p>
+          <p>Orders that are already prepared can't be canceled — the food is yours either way.</p>
+        </section>
+
+        <section>
+          <h2 class="font-display text-[1.4rem] font-semibold text-ink">If delivery goes wrong</h2>
+          <p>Late delivery: if your order arrives more than an hour past the DoorDash ETA, contact us and we'll work with DoorDash on a partial or full refund of the delivery fee.</p>
+          <p>Driver couldn't deliver: if a driver attempted delivery but couldn't reach you (bad address, no answer), we'll hold the order at the restaurant for pickup at no extra charge.</p>
+        </section>
+
+        <section>
+          <h2 class="font-display text-[1.4rem] font-semibold text-ink">How refunds reach you</h2>
+          <p>Refunds go back to the original payment method. Card refunds typically appear within 5–10 business days depending on your bank.</p>
+        </section>
+
+        <section>
+          <h2 class="font-display text-[1.4rem] font-semibold text-ink">Chargebacks</h2>
+          <p>If something feels off, please call us first — we can almost always solve it faster than a chargeback. Disputes filed without contacting us may delay future orders while we work through them with our processor.</p>
+        </section>
+
+        <section>
+          <h2 class="font-display text-[1.4rem] font-semibold text-ink">Questions</h2>
+          <p>Call (000) 000-0000 or email <a href="mailto:hello@example.com" class="text-ladrillo underline">hello@example.com</a>. The restaurant is open 11:30 AM – 9 PM most days; see our <a href="/contact/" class="text-ladrillo underline">contact page</a> for full hours.</p>
+        </section>
+      </div>
+    </article>
+  </main>
+
+  <SiteFooter client:load />
+</Layout>

@@ -1,0 +1,190 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  path?: string;
+}
+
+const SITE_URL = 'https://example.com';
+
+const {
+  title = "Sample Bistro — Authentic neighborhood Restaurant in Anytown, CA",
+  description = "Family-owned neighborhood restaurant in Anytown since 2006. Lomo saltado, ceviche, chaufa, weekend breakfast, and more. Order online — ready in 30 min.",
+  path = '/',
+} = Astro.props;
+
+const base = import.meta.env.BASE_URL;
+const indexable = import.meta.env.PUBLIC_INDEXABLE === '1';
+const canonicalUrl = `${SITE_URL}${path}`;
+const ogImage = `${SITE_URL}/assets/site/og-home.jpg`;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["Restaurant", "LocalBusiness"],
+      "@id": "https://example.com/#restaurant",
+      "name": "Sample Bistro",
+      "alternateName": "Sample Bistro Restaurant",
+      "description": "Family-owned neighborhood restaurant in Anytown, CA serving authentic lomo saltado, ceviche, and criollo home cooking since 2006.",
+      "url": "https://example.com",
+      "telephone": "+10000000000",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "123 Main Street",
+        "addressLocality": "Anytown",
+        "addressRegion": "CA",
+        "postalCode": "91325",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 34.2204451,
+        "longitude": -118.5096546
+      },
+      "openingHoursSpecification": [
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday"], "opens": "11:30", "closes": "21:00" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "11:30", "closes": "21:30" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:30", "closes": "21:30" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "09:30", "closes": "20:00" }
+      ],
+      "servesCuisine": ["neighborhood", "Latin American", "Criollo"],
+      "priceRange": "$$",
+      "hasMenu": "https://example.com/menu",
+      "currenciesAccepted": "USD",
+      "paymentAccepted": "Cash, Credit Card",
+      "image": ogImage,
+      "foundingDate": "2006",
+      "sameAs": [
+        "https://www.yelp.com/biz/plmks-storefront-northridge",
+        "https://www.instagram.com/samplebistro"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://example.com/#website",
+      "url": "https://example.com",
+      "name": "Sample Bistro",
+      "publisher": { "@id": "https://example.com/#restaurant" }
+    },
+    {
+      "@type": "WebPage",
+      "@id": `${canonicalUrl}#webpage`,
+      "url": canonicalUrl,
+      "name": title,
+      "description": description,
+      "isPartOf": { "@id": "https://example.com/#website" },
+      "about": { "@id": "https://example.com/#restaurant" },
+      "inLanguage": "en-US"
+    }
+  ]
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {!indexable && <meta name="robots" content="noindex, nofollow" />}
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" hreflang="en" href={canonicalUrl} />
+    <link rel="alternate" hreflang="es" href={`${canonicalUrl}?lang=es`} />
+    <link rel="alternate" hreflang="x-default" href={canonicalUrl} />
+
+    <meta property="og:type" content="restaurant" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Sample Bistro — Authentic neighborhood Restaurant in Anytown, CA" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="es_US" />
+    <meta property="og:site_name" content="Sample Bistro" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <link rel="icon" type="image/x-icon" href={`${base}assets/site/favicon.ico`} sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href={`${base}assets/site/favicon-32x32.png`} />
+    <link rel="icon" type="image/png" sizes="16x16" href={`${base}assets/site/favicon-16x16.png`} />
+    <link rel="apple-touch-icon" sizes="180x180" href={`${base}assets/site/apple-touch-icon.png`} />
+    <link rel="manifest" href={`${base}site.webmanifest`} />
+    <meta name="theme-color" content="#bf4a25" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  </head>
+  <body>
+    <div
+      id="scroll-progress"
+      style="position:fixed;top:0;left:0;height:3px;width:0;background:var(--color-ladrillo);z-index:100;will-change:width;"
+    >
+    </div>
+
+    <slot />
+
+    <script>
+      import Lenis from 'lenis';
+
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const progress = document.getElementById('scroll-progress');
+
+      function updateProgress() {
+        const doc = document.documentElement;
+        const max = doc.scrollHeight - doc.clientHeight;
+        const pct = max > 0 ? (window.scrollY / max) * 100 : 0;
+        if (progress) progress.style.width = pct + '%';
+      }
+
+      if (!reduce) {
+        const lenis = new Lenis({
+          duration: 1.15,
+          easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+          smoothWheel: true,
+          touchMultiplier: 1.6,
+        });
+
+        lenis.on('scroll', () => {
+          updateProgress();
+          window.dispatchEvent(new Event('scroll'));
+        });
+
+        function raf(time: number) {
+          lenis.raf(time);
+          requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+
+        document.querySelectorAll('a[href^="#"]').forEach((a) => {
+          a.addEventListener('click', (e) => {
+            const id = a.getAttribute('href');
+            if (!id || id === '#') return;
+            const el = document.querySelector(id);
+            if (el) {
+              e.preventDefault();
+              lenis.scrollTo(el as HTMLElement, { offset: -80, duration: 1.4 });
+            }
+          });
+        });
+
+        (window as any).__lenis = lenis;
+      } else {
+        window.addEventListener('scroll', updateProgress, { passive: true });
+      }
+
+      updateProgress();
+    </script>
+  </body>
+</html>

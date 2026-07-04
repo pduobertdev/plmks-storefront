@@ -1,0 +1,21 @@
+{
+  "name": "Sample Bistro",
+  "short_name": "Sample Bistro",
+  "description": "Family-owned neighborhood restaurant in Anytown, CA. Order online — ready in 30 min.",
+  "icons": [
+    {
+      "src": "/assets/site/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/site/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#bf4a25",
+  "background_color": "#f4ead6",
+  "display": "standalone",
+  "start_url": "/"
+}

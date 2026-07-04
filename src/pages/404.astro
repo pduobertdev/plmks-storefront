@@ -1,0 +1,44 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { SiteNav } from '../components/site/SiteNav.tsx';
+import { SiteFooter } from '../components/site/SiteFooter.tsx';
+import { Cenefa } from '../components/Cenefa.tsx';
+---
+
+<Layout
+  title="Page not found — Sample Bistro"
+  description="The page you're looking for doesn't exist. Head back home or browse the menu."
+  noindex={true}
+>
+  <SiteNav client:load />
+
+  <main class="min-h-[70vh] flex items-center justify-center px-6 py-24">
+    <div class="text-center max-w-xl">
+      <p class="kicker text-ladrillo mb-4">404 · Página no encontrada</p>
+      <h1 class="display text-[clamp(3rem,9vw,6rem)] font-semibold text-ink leading-[0.95]">
+        Lost in the kitchen.
+      </h1>
+      <p class="mt-4 text-ink-soft text-[1.05rem] leading-relaxed">
+        We can't find that page — maybe a dish ran off the menu. Try one of these:
+      </p>
+
+      <div class="mt-8 flex flex-wrap gap-3 justify-center">
+        <a href="/" class="rounded-full bg-ladrillo text-cream font-semibold px-6 py-3 hover:bg-ladrillo-deep transition-colors">
+          Home
+        </a>
+        <a href="/menu/" class="rounded-full border border-line bg-cream-card text-ink font-semibold px-6 py-3 hover:border-ladrillo transition-colors">
+          See the menu
+        </a>
+        <a href="/order/" class="rounded-full border border-line bg-cream-card text-ink font-semibold px-6 py-3 hover:border-ladrillo transition-colors">
+          Order online
+        </a>
+      </div>
+
+      <div class="mt-12 max-w-sm mx-auto opacity-50">
+        <Cenefa weight={1.6} client:visible />
+      </div>
+    </div>
+  </main>
+
+  <SiteFooter client:load />
+</Layout>

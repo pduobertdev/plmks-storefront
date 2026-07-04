@@ -1,0 +1,85 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { SiteNav } from '../components/site/SiteNav.tsx';
+import { SiteFooter } from '../components/site/SiteFooter.tsx';
+import { Cenefa } from '../components/Cenefa.tsx';
+---
+
+<Layout
+  title="Terms of Service — Sample Bistro"
+  description="The terms you agree to when you order online from Sample Bistro."
+>
+  <SiteNav client:load />
+
+  <main class="px-6 py-16 sm:py-24">
+    <article class="mx-auto max-w-2xl text-ink">
+      <p class="kicker text-ladrillo">Legal</p>
+      <h1 class="display text-[clamp(2.4rem,6vw,4rem)] font-semibold leading-[1.05] mt-3">Terms of Service</h1>
+      <p class="text-ink-mute mt-3 text-[0.95rem]">Last updated June 9, 2026</p>
+
+      <div class="mt-10 max-w-md opacity-50"><Cenefa weight={1.4} client:visible /></div>
+
+      <div class="prose-content mt-10 space-y-7 text-[1rem] leading-relaxed text-ink-soft">
+        <section>
+          <h2 class="font-display text-[1.4rem] font-semibold text-ink">Who you're dealing with</h2>
+          <p>This site is operated by Sample Bistro, a restaurant at 123 Main Street, Anytown, CA 90000. When you place an order online, you're entering a transaction directly with us.</p>
+        </section>
+
+        <section>
+          <h2 class="font-display text-[1.4rem] font-semibold text-ink">Placing an order</h2>
+          <p>To order, you need to provide accurate contact and (for delivery) address information, be 18 or older or have a parent / guardian's permission, and pay with a valid payment method.</p>
+          <p>An order is confirmed only when you receive a confirmation email and an order number. Until then, the order isn't accepted.</p>
+        </section>
+
+        <section>
+          <h2 class="font-display text-[1.4rem] font-semibold text-ink">Pricing and availability</h2>
+          <p>Prices, menu items, and hours are shown in good faith but can change. We do our best to keep the online menu accurate, but if something is sold out we'll contact you and refund or substitute the item before preparing it.</p>
+          <p>Sales tax is added at checkout at the California rate that applies to our address.</p>
+        </section>
+
+        <section>
+          <h2 class="font-display text-[1.4rem] font-semibold text-ink">Delivery</h2>
+          <p>Delivery is handled by independent third-party couriers (DoorDash, Uber, and others) on our behalf. The delivery fee and ETA shown at checkout are quoted live from those couriers. We do our best to honor the time you request, but we can't guarantee exact delivery time — traffic, weather, and driver availability change in real time.</p>
+          <p>If DoorDash refuses your address (out of range), we'll tell you at checkout and offer pickup instead.</p>
+        </section>
+
+        <section>
+          <h2 class="font-display text-[1.4rem] font-semibold text-ink">Pickup</h2>
+          <p>Pickup orders are typically ready in about 30 minutes. We hold ready orders for up to 2 hours from your requested time. If you can't make it, please call us.</p>
+        </section>
+
+        <section>
+          <h2 class="font-display text-[1.4rem] font-semibold text-ink">Refunds</h2>
+          <p>See our <a href="/refunds/" class="text-ladrillo underline">Refund Policy</a> for the full details.</p>
+        </section>
+
+        <section>
+          <h2 class="font-display text-[1.4rem] font-semibold text-ink">Food and allergies</h2>
+          <p>Our kitchen handles common allergens including gluten, dairy, eggs, shellfish, fish, soy, and tree nuts. We can't guarantee any dish is free of cross-contact. If you have a serious allergy, please tell us in the special-requests box or call before placing your order.</p>
+        </section>
+
+        <section>
+          <h2 class="font-display text-[1.4rem] font-semibold text-ink">Use of the site</h2>
+          <p>Don't use the site to do anything illegal, abusive, or that interferes with the service for other customers. We reserve the right to refuse service or cancel orders if we suspect fraud.</p>
+        </section>
+
+        <section>
+          <h2 class="font-display text-[1.4rem] font-semibold text-ink">Liability</h2>
+          <p>To the extent the law allows, our liability for any claim related to an order is limited to the amount you paid for that order. Nothing in these terms removes any rights you have under California law.</p>
+        </section>
+
+        <section>
+          <h2 class="font-display text-[1.4rem] font-semibold text-ink">Governing law</h2>
+          <p>These terms are governed by the laws of the State of California. Any dispute will be handled in the courts of Los Angeles County, California.</p>
+        </section>
+
+        <section>
+          <h2 class="font-display text-[1.4rem] font-semibold text-ink">Questions</h2>
+          <p>Email <a href="mailto:hello@example.com" class="text-ladrillo underline">hello@example.com</a> or call (000) 000-0000.</p>
+        </section>
+      </div>
+    </article>
+  </main>
+
+  <SiteFooter client:load />
+</Layout>

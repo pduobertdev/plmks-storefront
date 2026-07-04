@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300..800;1,14..32,400..600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import "tailwindcss";
+
+/* ──────────────────────────────────────────────────────────────
+   Sample Bistro — "Mesa Criolla"
+   Warm neighborhood editorial. Toasted paper, terracotta, ají gold.
+   ────────────────────────────────────────────────────────────── */
+
+@theme {
+  /* Paper — clean white */
+  --color-cream: #f8fafc;
+  --color-cream-deep: #eef2f7;
+  --color-cream-card: #ffffff;
+
+  /* Ink — warm cacao near-black */
+  --color-ink: #1e293b;
+  --color-ink-soft: #334155;
+  --color-ink-mute: #64748b;
+  --color-ink-faint: #94a3b8;
+  --color-line: #e2e8f0;
+
+  /* Brand red — matched to the Sample Bistro logo (#d90000), the primary */
+  --color-ladrillo: #2563eb;
+  --color-ladrillo-deep: #1d4ed8;
+  --color-ladrillo-tint: rgba(37, 99, 235, 0.10);
+
+  /* Ají amarillo — the gold highlight */
+  --color-aji: #0ea5e9;
+  --color-aji-soft: #7dd3fc;
+
+  /* Oxblood — depth, footers, dark moments */
+  --color-oxblood: #1e3a8a;
+  --color-oxblood-soft: #28459c;
+
+  /* Limón — the one fresh accent, used sparingly */
+  --color-limon: #10b981;
+
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+
+  --ease-criolla: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: auto;
+  overflow-x: hidden;
+}
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+body {
+  margin: 0;
+  background-color: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: 18px;
+  line-height: 1.62;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "kern", "liga", "calt";
+}
+
+::selection { background-color: var(--color-ladrillo); color: var(--color-cream); }
+::-webkit-scrollbar { width: 0; height: 0; }
+
+/* Visible scrollbar inside modals so users see the scroll affordance */
+.modal-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(36, 28, 18, 0.35) transparent;
+}
+.modal-scroll::-webkit-scrollbar { width: 8px; height: 8px; }
+.modal-scroll::-webkit-scrollbar-track { background: transparent; }
+.modal-scroll::-webkit-scrollbar-thumb {
+  background-color: rgba(36, 28, 18, 0.35);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+.modal-scroll::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(36, 28, 18, 0.55);
+  background-clip: content-box;
+}
+
+/* Paper grain — a faint tooth across the whole page */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.55;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+}
+
+/* ── Type ─────────────────────────────────────────────────────── */
+
+.font-display {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+}
+/* Bold condensed stamp face — matches the wordmark inside the seal logo */
+.font-stamp {
+  font-family: 'Bebas Neue', 'Oswald', 'Anton', sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-feature-settings: "kern", "liga";
+}
+/* The wonky, soft Fraunces voice — for big display moments */
+.display {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  font-variation-settings: "SOFT" 38, "WONK" 1;
+  letter-spacing: -0.018em;
+  line-height: 0.98;
+}
+.display-tight { line-height: 0.92; letter-spacing: -0.03em; }
+
+/* ── Editorial primitives ─────────────────────────────────────── */
+
+.kicker {
+  font-family: var(--font-sans);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.numeral {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  font-variation-settings: "SOFT" 0, "WONK" 0;
+  font-feature-settings: "tnum";
+}
+
+.hairline { height: 1px; background: var(--color-line); }
+
+/* Masked line-reveal — generous padding so Fraunces' descenders
+   and the cap of the next line are never clipped. */
+.line-mask {
+  overflow: hidden;
+  display: block;
+  padding-top: 0.14em;
+  padding-bottom: 0.32em;
+  margin-bottom: -0.32em;
+}
+
+/* Link underline that draws on hover */
+.uline {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1.5px;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  transition: background-size 0.45s var(--ease-criolla);
+}
+.uline:hover { background-size: 100% 1.5px; }
+
+/* Dotted leader — for the carta price rows */
+.leader {
+  flex: 1;
+  margin: 0 0.6rem;
+  border-bottom: 2px dotted var(--color-line);
+  transform: translateY(-0.28em);
+}
+
+/* Signature-dish marquee */
+@keyframes drift {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.marquee-track { display: flex; width: max-content; animation: drift 38s linear infinite; }
+.marquee-host:hover .marquee-track { animation-play-state: paused; }
+
+/* Mobile: swap auto-scroll for touch-scroll */
+@media (max-width: 639px) {
+  .marquee-host {
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    cursor: grab;
+  }
+  .marquee-host::-webkit-scrollbar { display: none; }
+  .marquee-track {
+    animation: none;
+    touch-action: pan-x;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+}
+
+/* Steam — a slow rising shimmer for the hero */
+@keyframes steam {
+  0%   { opacity: 0; transform: translateY(8px) scaleX(1); }
+  35%  { opacity: 0.5; }
+  100% { opacity: 0; transform: translateY(-34px) scaleX(1.5); }
+}
+
+/* CTA ring-pulse — draws the eye to the primary "explore the live site" link */
+@keyframes ctaPulse {
+  0%   { box-shadow: 0 0 0 0   rgba(217, 0, 0, 0.60); }
+  70%  { box-shadow: 0 0 0 18px rgba(217, 0, 0, 0);    }
+  100% { box-shadow: 0 0 0 0   rgba(217, 0, 0, 0);    }
+}
+.cta-pulse {
+  animation: ctaPulse 2.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+.cta-pulse:hover { animation-play-state: paused; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .marquee-track { animation: none; }
+}

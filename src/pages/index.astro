@@ -1,0 +1,16 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Home from '../components/site/Home';
+
+const skipPitch = import.meta.env.PUBLIC_SKIP_PITCH !== '0'; // template default: straight to the site
+---
+
+{true ? (
+  <Layout
+    title="Sample Bistro — Authentic neighborhood Restaurant in Anytown, CA"
+    description="Family-owned neighborhood restaurant in Anytown since 2006. Lomo saltado, ceviche, chaufa, weekend breakfast, and more. Order online — ready in 30 min."
+    path="/"
+  >
+    <Home client:load />
+  </Layout>
+) : null}

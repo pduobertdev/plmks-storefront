@@ -1,0 +1,111 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { SiteNav } from '../components/site/SiteNav.tsx';
+import { SiteFooter } from '../components/site/SiteFooter.tsx';
+import { Cenefa } from '../components/Cenefa.tsx';
+---
+
+<Layout
+  title="Order Alert Text Messages — Sample Bistro"
+  description="Sign up to receive Sample Bistro order-notification text messages. Consent is not a condition of purchase. Msg & data rates may apply."
+>
+  <SiteNav client:load />
+
+  <main class="px-6 py-16 sm:py-24">
+    <article class="mx-auto max-w-xl text-ink">
+      <p class="kicker text-ladrillo">Order alerts · Optional</p>
+      <h1 class="display text-[clamp(2.2rem,5.5vw,3.4rem)] font-semibold leading-[1.05] mt-3">Get order alerts by text</h1>
+      <p class="text-ink-mute mt-3 text-[0.95rem]">For Sample Bistro staff and operators</p>
+
+      <div class="mt-8 max-w-md opacity-50"><Cenefa weight={1.4} client:visible /></div>
+
+      <p class="mt-8 text-[1rem] leading-relaxed text-ink-soft">
+        Sign up to receive automated <strong>order-notification text messages</strong> from
+        Sample Bistro. When a new online order comes in, we'll text the order number, items,
+        total, and a link to the kitchen ticket — so nothing gets missed.
+      </p>
+
+      <div class="mt-6 rounded-2xl border-2 border-ladrillo/30 bg-ladrillo/[0.06] px-5 py-4 text-[0.92rem] leading-relaxed text-ink">
+        <strong>Signing up is completely optional.</strong> You do <strong>not</strong> need to
+        agree to text messages to place an order, create an account, or use anything on this
+        website. Consent to receive texts is never a condition of any purchase or service — you
+        can skip this at any time and everything still works.
+      </div>
+
+      <form
+        id="sms-optin"
+        class="mt-8 rounded-2xl border border-line bg-cream-card p-6 space-y-5"
+        novalidate
+      >
+        <div>
+          <label for="phone" class="block text-[0.85rem] font-semibold text-ink mb-1.5">Mobile phone number</label>
+          <input
+            id="phone"
+            name="phone"
+            type="tel"
+            inputmode="tel"
+            autocomplete="tel"
+            placeholder="(555) 123-4567"
+            required
+            class="w-full rounded-xl border border-line bg-cream px-4 py-3 text-ink placeholder:text-ink-mute focus:outline-none focus:ring-2 focus:ring-ladrillo/40"
+          />
+        </div>
+
+        <label class="flex items-start gap-3 text-[0.9rem] leading-snug text-ink-soft cursor-pointer">
+          <input id="consent" name="consent" type="checkbox" class="mt-0.5 h-5 w-5 shrink-0 accent-ladrillo" />
+          <span>
+            Yes, I agree to receive automated order-notification text messages from Sample Bistro
+            at the number above. <strong>Consent is not a condition of any purchase.</strong>
+          </span>
+        </label>
+
+        <div class="text-[0.8rem] leading-relaxed text-ink-mute space-y-1.5 border-t border-line pt-4">
+          <p><strong>Message frequency:</strong> varies — typically one message per online order.</p>
+          <p><strong>Message and data rates may apply.</strong></p>
+          <p>Reply <strong>STOP</strong> to unsubscribe or <strong>HELP</strong> for help at any time.</p>
+          <p>
+            See our
+            <a href="/terms" class="text-ladrillo underline">Terms of Service</a>
+            and
+            <a href="/privacy" class="text-ladrillo underline">Privacy Policy</a>.
+          </p>
+        </div>
+
+        <button
+          type="submit"
+          class="w-full rounded-full bg-ladrillo px-6 py-3.5 font-semibold text-cream transition hover:bg-oxblood"
+        >
+          Sign me up for order alerts
+        </button>
+
+        <a
+          href="/"
+          class="block text-center text-[0.9rem] font-semibold text-ink-mute underline underline-offset-4 hover:text-ink"
+        >
+          No thanks — skip texts and continue to the site
+        </a>
+
+        <p id="optin-result" class="hidden text-center text-[0.9rem] font-semibold text-ladrillo" role="status"></p>
+      </form>
+    </article>
+  </main>
+
+  <SiteFooter client:load />
+</Layout>
+
+<script>
+  const form = document.getElementById('sms-optin') as HTMLFormElement | null;
+  const result = document.getElementById('optin-result');
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const phone = (document.getElementById('phone') as HTMLInputElement)?.value.trim();
+    const consent = (document.getElementById('consent') as HTMLInputElement)?.checked;
+    if (!phone) { alert('Please enter a mobile phone number.'); return; }
+    if (!consent) { alert('Please check the consent box to opt in.'); return; }
+    if (result) {
+      result.textContent = "You're signed up — you'll start receiving order alerts at " + phone + '.';
+      result.classList.remove('hidden');
+    }
+    form.reset();
+  });
+</script>

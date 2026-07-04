@@ -1,0 +1,20 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Order from '../components/site/Order';
+---
+
+<Layout
+  title="Order Online — Sample Bistro Anytown | Pickup Ready in 30 Min"
+  description="Order authentic neighborhood food online for pickup in Anytown, CA. Lomo saltado, ceviche, chaufa, and more. Ready in about 30 minutes."
+  path="/order"
+>
+  <Order client:load />
+</Layout>
+
+<!-- Authorize.net Accept.js MUST be loaded via a static <script> in the HTML;
+     dynamic appendChild trips its internal CDN-origin check and throws
+     E_WC_03 "Library is not coming from Accept CDN." We default to the
+     SANDBOX endpoint here — orderApi.ts can still detect production mode
+     and ignore window.Accept; production swap is a one-line edit when
+     Sample Bistro gets a live merchant. -->
+<script is:inline src="https://jstest.authorize.net/v1/Accept.js" charset="utf-8"></script>

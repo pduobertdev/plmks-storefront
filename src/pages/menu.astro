@@ -1,0 +1,37 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Menu from '../components/site/Menu';
+import { MENU } from '../data/content';
+
+const menuSchema = {
+  "@context": "https://schema.org",
+  "@type": "Menu",
+  "name": "Sample Bistro Menu",
+  "url": "https://example.com/menu",
+  "mainEntityOfPage": "https://example.com/menu",
+  "hasMenuSection": MENU.map(cat => ({
+    "@type": "MenuSection",
+    "name": cat.name.en,
+    "description": cat.blurb.en,
+    "hasMenuItem": cat.items.map(item => ({
+      "@type": "MenuItem",
+      "name": item.name.replace(/^★\s*/, ''),
+      "description": item.desc.en,
+      "offers": {
+        "@type": "Offer",
+        "price": item.price,
+        "priceCurrency": "USD"
+      }
+    }))
+  }))
+};
+---
+
+<Layout
+  title="Menu — Sample Bistro neighborhood Restaurant Anytown CA"
+  description="Explore our full neighborhood menu: lomo saltado, ceviche clásico, ají de gallina, tallarin saltado, anticuchos, neighborhood breakfasts, and fresh juices."
+  path="/menu"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(menuSchema)} />
+  <Menu client:load />
+</Layout>

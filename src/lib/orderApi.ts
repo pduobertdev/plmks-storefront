@@ -346,7 +346,8 @@ export async function geocodeAddress(address: DeliveryAddress): Promise<GeocodeH
   }
 }
 
-export const orderApiEnabled = API_URL.length > 0;
+// '' = same-origin: the clone's backend serves this storefront, so /api/* always exists.
+export const orderApiEnabled = true;
 
 type ApiMenuItem = {
   id: string;

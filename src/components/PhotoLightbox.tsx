@@ -14,7 +14,7 @@ export function PhotoLightbox({ src, name, onClose }: { src: string; name: strin
   return (
     <div
       className="fixed inset-0 z-[200] flex flex-col items-center justify-center p-6 cursor-pointer"
-      style={{ backgroundColor: 'rgba(36,28,18,0.93)', backdropFilter: 'blur(10px)' }}
+      style={{ backgroundColor: 'rgba(30,41,59,0.93)', backdropFilter: 'blur(10px)' }}
       onClick={onClose}
     >
       <button

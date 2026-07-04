@@ -90,7 +90,7 @@ function Hero({ lang }: { lang: 'en' | 'es' }) {
                 src={food('dish-1')}
                 alt="House special"
                 delay={0.15}
-                className="aspect-[4/5] sm:aspect-[5/5] lg:aspect-[4/5] rounded-[2rem] lg:rounded-[2.5rem] shadow-[0_40px_80px_-30px_rgba(36,28,18,0.5)]"
+                className="aspect-[4/5] sm:aspect-[5/5] lg:aspect-[4/5] rounded-[2rem] lg:rounded-[2.5rem] shadow-[0_40px_80px_-30px_rgba(30,41,59,0.5)]"
               />
               {/* steam */}
               <div className="absolute left-1/2 top-3 -translate-x-1/2 pointer-events-none" aria-hidden>
@@ -259,7 +259,7 @@ function Signatures({ lang }: { lang: 'en' | 'es' }) {
             >
               <div className="overflow-hidden rounded-[1.6rem] aspect-[4/5]">
                 <img
-                  src={itemForDish(s.name)}
+                  src={food(s.photo)}
                   alt={s.name}
                   loading="lazy"
                   className="h-full w-full object-cover transition-transform duration-[1.1s] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-110"
@@ -333,7 +333,7 @@ function Story({ lang }: { lang: 'en' | 'es' }) {
             <ImageReveal
               src={food('table-spread')}
               alt="A spread of neighborhood dishes"
-              className="aspect-[5/4] rounded-[2rem] shadow-[0_40px_80px_-36px_rgba(36,28,18,0.5)]"
+              className="aspect-[5/4] rounded-[2rem] shadow-[0_40px_80px_-36px_rgba(30,41,59,0.5)]"
             />
           </Parallax>
         </div>
@@ -403,7 +403,7 @@ function Carta({ lang }: { lang: 'en' | 'es' }) {
                 />
                 <span
                   className="absolute inset-0"
-                  style={{ background: 'linear-gradient(to top, rgba(36,28,18,0.92) 8%, rgba(36,28,18,0.15) 60%)' }}
+                  style={{ background: 'linear-gradient(to top, rgba(30,41,59,0.92) 8%, rgba(30,41,59,0.15) 60%)' }}
                 />
                 <div className="absolute inset-0 p-5 flex flex-col justify-end">
                   <h3 className="font-display text-[1.55rem] font-semibold leading-tight">
@@ -484,7 +484,7 @@ function FinalCTA({ lang }: { lang: 'en' | 'es' }) {
     <section className="relative">
       <div className="absolute inset-0">
         <img src={food('dish-2')} alt="" className="h-full w-full object-cover" loading="lazy" />
-        <span className="absolute inset-0" style={{ background: 'rgba(79,23,18,0.86)' }} />
+        <span className="absolute inset-0" style={{ background: 'rgba(30,58,138,0.88)' }} />
       </div>
       <div className="relative mx-auto max-w-[1320px] px-5 sm:px-8 py-28 sm:py-40 text-center text-cream">
         <FadeUp>

@@ -331,7 +331,7 @@ function Category({ cat, index, lang }: { cat: MenuCategory; index: number; lang
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(180deg, rgba(36,28,18,0) 35%, rgba(36,28,18,0.55) 70%, rgba(36,28,18,0.88) 100%)',
+              'linear-gradient(180deg, rgba(30,41,59,0) 35%, rgba(30,41,59,0.55) 70%, rgba(30,41,59,0.88) 100%)',
           }}
         />
         <div className="absolute bottom-0 inset-x-0 p-6 sm:p-9 text-cream">

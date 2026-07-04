@@ -552,7 +552,7 @@ export default function Order() {
       {/* Online-ordering paused — popup on load; the nav carries a persistent strip. */}
       {storePaused && !pauseDismissed && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-5"
-             style={{ background: 'rgba(36,28,18,0.72)' }}
+             style={{ background: 'rgba(30,41,59,0.72)' }}
              onClick={() => setPauseDismissed(true)}>
           <div className="w-full max-w-md rounded-2xl border border-line bg-cream-card p-8 text-center shadow-2xl"
                onClick={(e) => e.stopPropagation()}>
@@ -739,7 +739,7 @@ export default function Order() {
                       loading={i < 2 ? 'eager' : 'lazy'}
                       className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-300 ${availableNow ? '' : 'opacity-70'}`}
                     />
-                    <div className="absolute inset-0" style={{ background: 'linear-gradient(90deg,rgba(36,28,18,0.88) 0%,rgba(36,28,18,0.45) 55%,rgba(36,28,18,0) 100%)' }} />
+                    <div className="absolute inset-0" style={{ background: 'linear-gradient(90deg,rgba(30,41,59,0.88) 0%,rgba(30,41,59,0.45) 55%,rgba(30,41,59,0) 100%)' }} />
                     <div className="absolute inset-0 flex items-center px-6">
                       <div>
                         <h2 className="display text-[1.7rem] sm:text-[2rem] font-semibold text-cream leading-none">{pick(cat.name, lang)}</h2>

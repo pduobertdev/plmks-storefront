@@ -77,7 +77,7 @@ export default function About() {
                   <ImageReveal
                     src={asset('team.jpg')}
                     alt="The Sample Bistro family and team at the restaurant"
-                    className="aspect-[4/5] rounded-[2rem] shadow-[0_40px_80px_-36px_rgba(36,28,18,0.5)]"
+                    className="aspect-[4/5] rounded-[2rem] shadow-[0_40px_80px_-36px_rgba(30,41,59,0.5)]"
                     imgClassName="object-[center_35%]"
                   />
                 </Parallax>
@@ -107,7 +107,7 @@ export default function About() {
                     <ImageReveal
                       src={food(i === 0 ? 'dish-3' : 'dish-4')}
                       alt=""
-                      className="aspect-[5/4] rounded-[2rem] shadow-[0_36px_70px_-34px_rgba(36,28,18,0.5)]"
+                      className="aspect-[5/4] rounded-[2rem] shadow-[0_36px_70px_-34px_rgba(30,41,59,0.5)]"
                     />
                   </Parallax>
                 </div>

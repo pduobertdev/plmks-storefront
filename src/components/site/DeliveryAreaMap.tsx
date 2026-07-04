@@ -71,7 +71,7 @@ function pinIcon(L: LeafletGlobal, color: string) {
     iconSize: [28, 36],
     iconAnchor: [14, 34],
     html: `
-      <div style="width:28px;height:36px;position:relative;filter:drop-shadow(0 2px 4px rgba(36,28,18,0.35));">
+      <div style="width:28px;height:36px;position:relative;filter:drop-shadow(0 2px 4px rgba(30,41,59,0.35));">
         <svg viewBox="0 0 28 36" width="28" height="36" xmlns="http://www.w3.org/2000/svg">
           <path d="M14 0C6.27 0 0 6.27 0 14c0 9.5 14 22 14 22s14-12.5 14-22C28 6.27 21.73 0 14 0z" fill="${color}"/>
           <circle cx="14" cy="14" r="5" fill="#f4ead6"/>

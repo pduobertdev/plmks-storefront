@@ -11,7 +11,7 @@ const SITE_URL = 'https://example.com';
 
 const {
   title = "Sample Bistro — Authentic neighborhood Restaurant in Anytown, CA",
-  description = "Family-owned neighborhood restaurant in Anytown since 2006. Lomo saltado, ceviche, chaufa, weekend breakfast, and more. Order online — ready in 30 min.",
+  description = "Family-owned neighborhood kitchen in Anytown. Fresh, made-from-scratch food. Order online — ready in about 30 minutes.",
   path = '/',
 } = Astro.props;
 
@@ -28,7 +28,7 @@ const schema = {
       "@id": "https://example.com/#restaurant",
       "name": "Sample Bistro",
       "alternateName": "Sample Bistro Restaurant",
-      "description": "Family-owned neighborhood restaurant in Anytown, CA serving authentic lomo saltado, ceviche, and criollo home cooking since 2006.",
+      "description": "Family-owned neighborhood kitchen in Anytown, CA serving fresh, made-from-scratch food.",
       "url": "https://example.com",
       "telephone": "+10000000000",
       "address": {
@@ -50,15 +50,14 @@ const schema = {
         { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:30", "closes": "21:30" },
         { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "09:30", "closes": "20:00" }
       ],
-      "servesCuisine": ["neighborhood", "Latin American", "Criollo"],
+      "servesCuisine": ["Home cooking"],
       "priceRange": "$$",
       "hasMenu": "https://example.com/menu",
       "currenciesAccepted": "USD",
       "paymentAccepted": "Cash, Credit Card",
       "image": ogImage,
-      "foundingDate": "2006",
       "sameAs": [
-        "https://www.yelp.com/biz/plmks-storefront-northridge",
+        "https://www.yelp.com/biz/sample-bistro-anytown",
         "https://www.instagram.com/samplebistro"
       ]
     },

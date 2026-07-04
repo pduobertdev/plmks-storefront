@@ -3,17 +3,12 @@ const BASE = import.meta.env.BASE_URL;
 
 export const asset = (p: string) => `${BASE}assets/site/${p}`;
 export const food = (name: string) => asset(`food/${name}.jpg`);
-/** Official Wix menu-section header photos. */
+/** Menu-section header photos. */
 export const section = (name: string) => asset(`sections/${name}.jpg`);
-/** Per-dish photos, scraped from the live Wix ordering page. */
+/** Per-item photos. */
 export const item = (slug: string) => asset(`items/${slug}.jpg`);
 
-const dishPhotoOverrides: Record<string, string> = {
-  'Tallarín Huancaína con Medallones de Filet Mignon': 'tallarin-a-la-huancaina-con-medallones-de-filet-mignon',
-  'Saltado de Mariscos': 'tallarin-saltado-de-mariscos',
-  'Fuente Tallarín Saltado de Camarones': 'tallarin-saltado-de-camarones',
-  'Puré con Pollo a la Plancha': 'pure-con-asado',
-};
+const dishPhotoOverrides: Record<string, string> = {}; // per-client photo-name overrides
 
 export const itemForDish = (name: string) => item(dishPhotoOverrides[name] ?? dishSlug(name));
 

@@ -70,7 +70,7 @@ export function SiteNav({
             />
             <span className="hidden sm:flex flex-col leading-[0.85]">
               <span className="font-stamp text-[1.65rem] sm:text-[1.85rem] text-ink">Sample Bistro</span>
-              <span className="font-stamp text-[0.66rem] tracking-[0.22em] text-ladrillo mt-1">Cocina Casera</span>
+              <span className="font-stamp text-[0.66rem] tracking-[0.22em] text-ladrillo mt-1">Neighborhood Kitchen</span>
             </span>
           </a>
 

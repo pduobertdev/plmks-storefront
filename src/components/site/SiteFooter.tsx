@@ -48,7 +48,7 @@ export function SiteFooter({ lang }: { lang: Lang }) {
               </h2>
               <img
                 src={asset('seal.jpg')}
-                alt="Sample Bistro — Family Owned Since 2006"
+                alt="Sample Bistro — Family Owned & Operated"
                 className="h-20 sm:h-24 w-auto flex-shrink-0 invert mix-blend-screen opacity-85"
               />
             </div>
@@ -110,7 +110,7 @@ export function SiteFooter({ lang }: { lang: Lang }) {
         </div>
 
         <div className="mt-16 pt-6 flex flex-col sm:flex-row gap-3 justify-between text-[0.76rem] text-cream/45 border-t border-cream/15">
-          <span>© {new Date().getFullYear()} Sample Bistro · Cocina Casera</span>
+          <span>© {new Date().getFullYear()} Sample Bistro · Neighborhood Kitchen</span>
           <div className="flex flex-wrap gap-x-5 gap-y-1.5 items-center">
             <a href={href('privacy')} className="hover:text-cream/70 transition-colors">
               {lang === 'en' ? 'Privacy' : 'Privacidad'}

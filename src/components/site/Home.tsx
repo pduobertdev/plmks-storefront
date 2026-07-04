@@ -87,8 +87,8 @@ function Hero({ lang }: { lang: 'en' | 'es' }) {
           <Parallax distance={42}>
             <div className="relative">
               <ImageReveal
-                src={food('lomo-saltado')}
-                alt="Lomo Saltado de la Casa"
+                src={food('dish-1')}
+                alt="House special"
                 delay={0.15}
                 className="aspect-[4/5] sm:aspect-[5/5] lg:aspect-[4/5] rounded-[2rem] lg:rounded-[2.5rem] shadow-[0_40px_80px_-30px_rgba(36,28,18,0.5)]"
               />
@@ -113,7 +113,7 @@ function Hero({ lang }: { lang: 'en' | 'es' }) {
           {/* seal */}
           <motion.img
             src={asset('seal.jpg')}
-            alt="Family owned, established 2006"
+            alt="Family owned & operated"
             className="absolute -bottom-7 -left-3 sm:left-2 h-28 w-28 sm:h-32 sm:w-32 rounded-full border-4 border-cream shadow-xl"
             initial={{ opacity: 0, scale: 0.6, rotate: -30 }}
             animate={{ opacity: 1, scale: 1, rotate: 0 }}
@@ -314,12 +314,12 @@ function Story({ lang }: { lang: 'en' | 'es' }) {
             </p>
             <div className="mt-8 flex items-center gap-5">
               <span className="display text-[3.4rem] font-semibold text-ladrillo leading-none numeral">
-                {new Date().getFullYear() - INFO.established}
+                100%
               </span>
               <span className="text-[0.95rem] text-ink-mute max-w-[12rem]">
                 {lang === 'en'
-                  ? 'years of one family in the same kitchen.'
-                  : 'años de una familia en la misma cocina.'}
+                  ? 'made from scratch, in one family kitchen.'
+                  : 'hecho desde cero, en una cocina familiar.'}
               </span>
             </div>
             <a href={href('about')} className="mt-8 inline-block font-display text-[1.05rem] font-medium uline">
@@ -344,7 +344,7 @@ function Story({ lang }: { lang: 'en' | 'es' }) {
 
 /* ── 03 · Carta preview ───────────────────────────────────────── */
 function Carta({ lang }: { lang: 'en' | 'es' }) {
-  const featured = ['saltados', 'seafood', 'chicken-meat', 'appetizers', 'criollo', 'soups'];
+  const featured = ['featured', 'popular', 'extras'];
   const cats = featured
     .map((id) => MENU.find((c) => c.id === id)!)
     .filter(Boolean);
@@ -383,8 +383,8 @@ function Carta({ lang }: { lang: 'en' | 'es' }) {
           </div>
           <p className="max-w-xs text-cream/60 text-[0.96rem]">
             {lang === 'en'
-              ? 'Coast, mountains and criollo home cooking — all on one menu.'
-              : 'Costa, sierra y cocina criolla — todo en una sola carta.'}
+              ? 'Everything made fresh — all on one menu.'
+              : 'Todo hecho al momento — en una sola carta.'}
           </p>
         </div>
 
@@ -483,7 +483,7 @@ function FinalCTA({ lang }: { lang: 'en' | 'es' }) {
   return (
     <section className="relative">
       <div className="absolute inset-0">
-        <img src={food('anticuchos')} alt="" className="h-full w-full object-cover" loading="lazy" />
+        <img src={food('dish-2')} alt="" className="h-full w-full object-cover" loading="lazy" />
         <span className="absolute inset-0" style={{ background: 'rgba(79,23,18,0.86)' }} />
       </div>
       <div className="relative mx-auto max-w-[1320px] px-5 sm:px-8 py-28 sm:py-40 text-center text-cream">

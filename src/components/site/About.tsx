@@ -15,8 +15,8 @@ const INSTAGRAM_PATH = 'M12 2.2c3.2 0 3.6 0 4.85.07 3.25.15 4.77 1.69 4.92 4.92.
 type IgPost = { url: string; permalink: string };
 
 const DEMO_POSTS: IgPost[] = [
-  'ceviche', 'anticuchos', 'jalea', 'lomo-saltado', 'chaufa',
-  'tallarin-verde', 'aji-gallina', 'huancaina', 'seafood-soup', 'arroz-mariscos',
+  'dish-1', 'dish-2', 'dish-3', 'dish-4',
+  'dish-1', 'dish-2', 'dish-3', 'dish-4',
 ].map((slug) => ({ url: food(slug), permalink: IG_URL }));
 
 // Instagram rate-limits the public scrape, so the live feed often returns just
@@ -105,7 +105,7 @@ export default function About() {
                 <div className={`lg:col-span-6 ${i % 2 ? 'lg:order-2' : ''}`}>
                   <Parallax distance={44}>
                     <ImageReveal
-                      src={food(i === 0 ? 'jalea' : 'table-spread')}
+                      src={food(i === 0 ? 'dish-3' : 'dish-4')}
                       alt=""
                       className="aspect-[5/4] rounded-[2rem] shadow-[0_36px_70px_-34px_rgba(36,28,18,0.5)]"
                     />
@@ -189,8 +189,8 @@ export default function About() {
             </p>
             <p className="mt-5 text-cream/65 max-w-md mx-auto">
               {lang === 'en'
-                ? 'Three words have guided this kitchen since 2006. Come find out why.'
-                : 'Tres palabras han guiado esta cocina desde 2006. Ven a descubrir por qué.'}
+                ? 'Three words guide this kitchen every day. Come find out why.'
+                : 'Tres palabras guían esta cocina cada día. Ven a descubrir por qué.'}
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-4">
               <a href={`${BASE}order`}

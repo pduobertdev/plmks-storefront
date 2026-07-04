@@ -28,13 +28,13 @@ const CAT_ICONS: [string[], string][] = [
   [['appetizer', 'entrada', 'aperitivo'],
    // fork (3 tines + handle)
    'M5 1v6M7 1v6M9 1v6M7 7v8'],
-  [['saltado', 'salteado', 'stir', 'fry'],
+  [['grill', 'stir', 'fry', 'wok'],
    // flame
    'M8 14c-3 0-5-2-5-5 0-2 1-4 2-5 0 2 1 3 2 3.5-.5-2 0-3.5 1-4.5 0 2 2 4 2 6 .5-1 .5-2 0-3 1.5 1.5 1 4-.5 5.5 1-.5 1.5-2 1.5-2.5'],
   [['soup', 'sopa', 'caldo'],
    // bowl + steam lines
    'M3 10h10M2 13h12l-.8 2H2.8L2 13zM6 7c0-1.5 1-2 1-3M10 7c0-1.5-1-2-1-3'],
-  [['criollo', 'criolla'],
+  [['special', 'signature', 'featured', 'house'],
    // star
    'M8 1.5l1.6 4.5H15l-4 2.8 1.5 4.7L8 10.5l-4.5 3 1.5-4.7-4-2.8h5.4z'],
   [['side', 'antojo', 'acompaña'],
@@ -46,7 +46,7 @@ const CAT_ICONS: [string[], string][] = [
   [['dessert', 'postre', 'dulce', 'sweet'],
    // ice cream cone: semicircle scoop + V cone
    'M5 8a3 3 0 0 1 6 0H5zM5 8l3 7 3-7'],
-  [['drink', 'bebida', 'jugo', 'refresco', 'chicha', 'beverage'],
+  [['drink', 'bebida', 'jugo', 'refresco', 'beverage'],
    // cup
    'M5 2h6l-1 11H6L5 2zM4 5h8'],
   [['lunch', 'almuerzo', 'weekday', 'semana', 'lunes'],
@@ -226,7 +226,7 @@ export default function Menu() {
         <header className="pt-[150px] pb-12 sm:pb-16 text-center">
           <p className="kicker text-ladrillo flex items-center justify-center gap-3">
             <Chakana size={13} />
-            {lang === 'en' ? 'neighborhood Kitchen · Anytown' : 'Cocina Casera · Anytown'}
+            {lang === 'en' ? 'Neighborhood Kitchen · Anytown' : 'Cocina del Barrio · Anytown'}
           </p>
           <LineReveal
             as="h1"
@@ -235,8 +235,8 @@ export default function Menu() {
           />
           <p className="mt-3 max-w-md mx-auto text-ink-mute">
             {lang === 'en'
-              ? 'Coast, mountains and criollo home cooking — twelve sections, cooked fresh every day.'
-              : 'Costa, sierra y cocina criolla — doce secciones, frescas cada día.'}
+              ? 'The full menu — every section, cooked fresh every day.'
+              : 'La carta completa — cada sección, fresca todos los días.'}
           </p>
         </header>
 

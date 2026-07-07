@@ -35,91 +35,58 @@ export default function Home() {
 function Hero({ lang }: { lang: 'en' | 'es' }) {
   const lines = lang === 'en' ? HOME.heroLine : HOME.heroLineEs;
   return (
-    <section className="relative min-h-screen flex items-center pt-[110px] pb-20">
-      <div className="mx-auto max-w-[1320px] w-full px-5 sm:px-8 grid lg:grid-cols-12 gap-10 lg:gap-6 items-center">
-        {/* Words */}
-        <div className="lg:col-span-6 relative z-10">
-          <motion.p
-            className="kicker text-ladrillo flex items-center gap-3"
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: EASE, delay: 0.15 }}
-          >
-            <Chakana size={13} />
-            {pick(HOME.heroKicker, lang)}
-          </motion.p>
+    <section className="relative min-h-[92vh] flex items-end overflow-hidden">
+      {/* full-bleed food image */}
+      <div className="absolute inset-0">
+        <img src={food('table-spread')} alt="" className="h-full w-full object-cover object-center" />
+        <div
+          className="absolute inset-0"
+          style={{ background: 'linear-gradient(180deg, rgba(15,23,42,0.45) 0%, rgba(15,23,42,0.12) 38%, rgba(15,23,42,0.92) 100%)' }}
+        />
+      </div>
 
-          <LineReveal
-            as="h1"
-            lines={lines}
-            delay={0.3}
-            className="display display-tight mt-5 text-[clamp(3.4rem,9vw,7.2rem)] font-semibold text-ink"
-          />
+      <div className="relative z-10 mx-auto max-w-[1320px] w-full px-5 sm:px-8 pb-16 pt-[140px]">
+        <motion.p
+          className="kicker text-cream/80 flex items-center gap-3"
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: EASE, delay: 0.15 }}
+        >
+          <Chakana size={13} />
+          {pick(HOME.heroKicker, lang)}
+        </motion.p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, ease: EASE, delay: 0.7 }}
-          >
-            <p className="mt-7 max-w-[30rem] text-[1.08rem] text-ink-soft">
-              {pick(HOME.heroBody, lang)}
-            </p>
-            <div className="mt-9 flex flex-wrap items-center gap-4">
-              <a
-                href={href('order')}
-                className="group inline-flex items-center gap-2.5 rounded-full bg-ladrillo px-7 py-4 text-cream font-semibold tracking-wide transition-all duration-300 hover:bg-ladrillo-deep hover:-translate-y-0.5"
-              >
-                {pick(UI.orderNow, lang)}
-                <span className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden>→</span>
-              </a>
-              <a
-                href={href('menu')}
-                className="font-display text-[1.05rem] font-medium text-ink uline"
-              >
-                {pick(UI.viewMenu, lang)}
-              </a>
-            </div>
-          </motion.div>
-        </div>
+        <LineReveal
+          as="h1"
+          lines={lines}
+          delay={0.3}
+          className="display display-tight mt-4 text-[clamp(3.6rem,11vw,9rem)] font-extrabold leading-[0.92] text-cream"
+        />
 
-        {/* Dish */}
-        <div className="lg:col-span-6 relative">
-          <Parallax distance={42}>
-            <div className="relative">
-              <ImageReveal
-                src={food('dish-1')}
-                alt="House special"
-                delay={0.15}
-                className="aspect-[4/5] sm:aspect-[5/5] lg:aspect-[4/5] rounded-[2rem] lg:rounded-[2.5rem] shadow-[0_40px_80px_-30px_rgba(30,41,59,0.5)]"
-              />
-              {/* steam */}
-              <div className="absolute left-1/2 top-3 -translate-x-1/2 pointer-events-none" aria-hidden>
-                {[0, 1, 2].map((i) => (
-                  <span
-                    key={i}
-                    className="absolute block rounded-full"
-                    style={{
-                      width: 26, height: 26, left: i * 34 - 34,
-                      background: 'radial-gradient(circle, rgba(255,255,255,0.85), rgba(255,255,255,0))',
-                      filter: 'blur(7px)',
-                      animation: `steam 4.2s ${i * 1.1}s ease-out infinite`,
-                    }}
-                  />
-                ))}
-              </div>
-            </div>
-          </Parallax>
-
-          {/* seal */}
-          <motion.img
-            src={asset('seal.jpg')}
-            alt="Family owned & operated"
-            className="absolute -bottom-7 -left-3 sm:left-2 h-28 w-28 sm:h-32 sm:w-32 rounded-full border-4 border-cream shadow-xl"
-            initial={{ opacity: 0, scale: 0.6, rotate: -30 }}
-            animate={{ opacity: 1, scale: 1, rotate: 0 }}
-            transition={{ duration: 0.9, ease: EASE, delay: 1.0 }}
-          />
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, ease: EASE, delay: 0.7 }}
+        >
+          <p className="mt-6 max-w-[34rem] text-[1.15rem] leading-relaxed text-cream/85">
+            {pick(HOME.heroBody, lang)}
+          </p>
+          <div className="mt-9 flex flex-wrap items-center gap-4">
+            <a
+              href={href('order')}
+              className="group inline-flex items-center gap-2.5 rounded-full bg-ladrillo px-8 py-4 text-cream text-[1.05rem] font-bold tracking-wide shadow-lg transition-all duration-300 hover:bg-ladrillo-deep hover:-translate-y-0.5"
+            >
+              {pick(UI.orderNow, lang)}
+              <span className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden>&rarr;</span>
+            </a>
+            <a
+              href={href('menu')}
+              className="inline-flex items-center rounded-full border border-cream/45 px-8 py-4 text-cream text-[1.05rem] font-semibold transition-all duration-300 hover:bg-cream/10 hover:-translate-y-0.5"
+            >
+              {pick(UI.viewMenu, lang)}
+            </a>
+          </div>
+        </motion.div>
       </div>
 
       {/* scroll cue */}
@@ -129,9 +96,9 @@ function Hero({ lang }: { lang: 'en' | 'es' }) {
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1.3 }}
       >
-        <span className="kicker text-ink-faint text-[0.6rem]">{lang === 'en' ? 'Scroll' : 'Desliza'}</span>
+        <span className="kicker text-cream/60 text-[0.6rem]">{lang === 'en' ? 'Scroll' : 'Desliza'}</span>
         <motion.span
-          className="block h-9 w-px bg-ink-faint"
+          className="block h-9 w-px bg-cream/50"
           animate={{ scaleY: [0.3, 1, 0.3], originY: 0 }}
           transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
         />

@@ -1,13 +1,11 @@
-import { useId } from 'react';
-
-/* The stepped Andean fret ("la cenefa") — the project's signature device.
-   One tile is a stepped pyramid 48 wide × 12 tall. */
-const STEP = 'M0,12 H6 V8 H12 V4 H18 V0 H30 V4 H36 V8 H42 V12 H48';
-
-/**
- * Cenefa — a thin stepped-fret rule, tiled horizontally.
- * Inherits color via currentColor unless `tone` is given.
+/*
+ * Neutral dividers for the generic template. The old Andean-fret "cenefa" +
+ * "chakana" motifs were Peru's Taste signature and made every clone look like
+ * that restaurant. These render a clean modern rule + a simple block glyph
+ * instead. Names and props are kept so existing call sites don't change.
  */
+
+/** A clean, full-width horizontal rule (was the stepped Andean fret). */
 export function Cenefa({
   className = '',
   tone = 'currentColor',
@@ -19,29 +17,24 @@ export function Cenefa({
   weight?: number;
   flip?: boolean;
 }) {
-  const id = useId().replace(/:/g, '');
+  void flip;
+  const h = Math.max(2, Math.round(weight));
   return (
-    <svg
+    <div
       className={className}
-      width="100%"
-      height="12"
       aria-hidden="true"
-      style={{ display: 'block', transform: flip ? 'scaleY(-1)' : undefined }}
-    >
-      <defs>
-        <pattern id={`c-${id}`} width="48" height="12" patternUnits="userSpaceOnUse">
-          <path d={STEP} fill="none" stroke={tone} strokeWidth={weight} />
-        </pattern>
-      </defs>
-      <rect width="100%" height="12" fill={`url(#c-${id})`} />
-    </svg>
+      style={{
+        width: '100%',
+        height: h,
+        borderRadius: 999,
+        background: tone,
+        opacity: 0.85,
+      }}
+    />
   );
 }
 
-/**
- * Chakana — a small stepped-cross glyph (the Andean cross), simplified.
- * Used as an ornament / list marker.
- */
+/** A simple rounded-square block marker (was the Andean cross). */
 export function Chakana({
   size = 16,
   className = '',
@@ -60,10 +53,7 @@ export function Chakana({
       aria-hidden="true"
       style={{ display: 'block' }}
     >
-      <path
-        fill={tone}
-        d="M9 0h6v3h3v3h3v6h3v6h-3v3h-3v3H9v-3H6v-3H3v-6H0V9h3V6h3V3h3Zm1.5 9v6h3V9Z"
-      />
+      <rect x="4" y="4" width="16" height="16" rx="4" fill={tone} />
     </svg>
   );
 }

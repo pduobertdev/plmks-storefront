@@ -6,6 +6,7 @@ import { SiteNav } from './SiteNav';
 import { SiteFooter } from './SiteFooter';
 import { Cenefa, Chakana } from '../Cenefa';
 import { LineReveal, FadeUp, ImageReveal, Parallax } from '../motion';
+import { PageHero } from './PageHero';
 
 const BASE = import.meta.env.BASE_URL;
 const API_URL = import.meta.env.PUBLIC_ORDER_API_URL?.replace(/\/$/, '') ?? '';
@@ -56,39 +57,29 @@ export default function About() {
     <div>
       <SiteNav lang={lang} setLang={setLang} current="about" />
       <main>
-        {/* hero */}
-        <section className="pt-[150px] pb-16 sm:pb-24">
-          <div className="mx-auto max-w-[1320px] px-5 sm:px-8">
-            <p className="kicker text-ladrillo flex items-center gap-3">
-              <Chakana size={13} /> {pick(ABOUT.kicker, lang)}
-            </p>
+        <PageHero
+          image={asset('hero-about.jpg')}
+          kicker={pick(ABOUT.kicker, lang)}
+          lines={title}
+        />
 
-            {/* Title on the left, team photo on the right */}
-            <div className="mt-6 grid lg:grid-cols-12 gap-10 items-center">
-              <div className="lg:col-span-7">
-                <LineReveal
-                  as="h1"
-                  lines={title}
-                  className="display display-tight text-[clamp(2.6rem,7.5vw,6.5rem)] font-semibold text-ink"
+        {/* intro — team photo + lead */}
+        <section className="py-16 sm:py-24">
+          <div className="mx-auto max-w-[1320px] px-5 sm:px-8 grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            <div className="lg:col-span-5">
+              <Parallax distance={36}>
+                <ImageReveal
+                  src={asset('team.jpg')}
+                  alt="The Sample Bistro family and team at the restaurant"
+                  className="aspect-[4/5] rounded-[2rem] shadow-[0_40px_80px_-36px_rgba(30,41,59,0.5)]"
+                  imgClassName="object-[center_35%]"
                 />
-              </div>
-              <div className="lg:col-span-5">
-                <Parallax distance={36}>
-                  <ImageReveal
-                    src={asset('team.jpg')}
-                    alt="The Sample Bistro family and team at the restaurant"
-                    className="aspect-[4/5] rounded-[2rem] shadow-[0_40px_80px_-36px_rgba(30,41,59,0.5)]"
-                    imgClassName="object-[center_35%]"
-                  />
-                </Parallax>
-              </div>
+              </Parallax>
             </div>
-
-            {/* Intro paragraph — single full-width column below */}
-            <div className="mt-12 max-w-4xl">
+            <div className="lg:col-span-7">
               <FadeUp>
                 <img src={asset('seal.jpg')} alt="" className="h-20 w-20 rounded-full mb-5" />
-                <p className="font-display text-[1.3rem] sm:text-[1.5rem] text-ink leading-snug">
+                <p className="font-display text-[1.4rem] sm:text-[1.7rem] text-ink leading-snug">
                   {pick(ABOUT.lead, lang)}
                 </p>
               </FadeUp>

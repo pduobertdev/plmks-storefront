@@ -7,6 +7,7 @@ import { fetchDisplayMenu } from '../../lib/orderApi';
 import type { OrderMenuCategory } from '../../lib/orderApi';
 import { section, asset, item, itemForDish } from '../../lib/assets';
 import { PhotoLightbox } from '../PhotoLightbox';
+import { PageHero } from './PageHero';
 import { SiteNav } from './SiteNav';
 import { SiteFooter } from './SiteFooter';
 import { Cenefa, Chakana } from '../Cenefa';
@@ -115,23 +116,14 @@ export default function Menu() {
     <div>
       <SiteNav lang={lang} setLang={setLang} current="menu" />
       <main className="relative">
-        {/* header */}
-        <header className="pt-[150px] pb-12 sm:pb-16 text-center">
-          <p className="kicker text-ladrillo flex items-center justify-center gap-3">
-            <Chakana size={13} />
-            {lang === 'en' ? 'Neighborhood Kitchen · Anytown' : 'Cocina del Barrio · Anytown'}
-          </p>
-          <LineReveal
-            as="h1"
-            lines={[lang === 'en' ? 'The Menu' : 'La Carta']}
-            className="display mt-4 text-[clamp(3.6rem,11vw,8rem)] font-semibold text-ink"
-          />
-          <p className="mt-3 max-w-md mx-auto text-ink-mute">
-            {lang === 'en'
-              ? 'The full menu — every section, cooked fresh every day.'
-              : 'La carta completa — cada sección, fresca todos los días.'}
-          </p>
-        </header>
+        <PageHero
+          image={asset('hero-menu.jpg')}
+          kicker={lang === 'en' ? 'Neighborhood Kitchen · Anytown' : 'Cocina del Barrio · Anytown'}
+          lines={[lang === 'en' ? 'The Menu' : 'La Carta']}
+          sub={lang === 'en'
+            ? 'The full menu — every section, cooked fresh every day.'
+            : 'La carta completa — cada sección, fresca todos los días.'}
+        />
 
         {/* sticky bar + categories share one container so the sticky stops here */}
         <div>

@@ -8,6 +8,8 @@ import { SiteNav } from './SiteNav';
 import { SiteFooter } from './SiteFooter';
 import { Cenefa, Chakana } from '../Cenefa';
 import { LineReveal, FadeUp, EASE } from '../motion';
+import { PageHero } from './PageHero';
+import { asset } from '../../lib/assets';
 
 const BASE = import.meta.env.BASE_URL;
 const MAP = 'https://www.google.com/maps?q=123+Main+Street+Anytown+CA&output=embed';
@@ -29,22 +31,14 @@ export default function Contact() {
     <div>
       <SiteNav lang={lang} setLang={setLang} current="contact" />
       <main>
-        {/* hero */}
-        <header className="pt-[150px] pb-12 sm:pb-16">
-          <div className="mx-auto max-w-[1320px] px-5 sm:px-8">
-            <p className="kicker text-ladrillo flex items-center gap-3">
-              <Chakana size={13} /> {pick(CONTACT.kicker, lang)}
-            </p>
-            <LineReveal
-              as="h1"
-              lines={title}
-              className="display display-tight mt-5 text-[clamp(2.8rem,8.5vw,7rem)] font-semibold text-ink"
-            />
-          </div>
-        </header>
+        <PageHero
+          image={asset('hero-contact.jpg')}
+          kicker={pick(CONTACT.kicker, lang)}
+          lines={title}
+        />
 
         {/* info + map */}
-        <section className="mx-auto max-w-[1320px] px-5 sm:px-8 grid lg:grid-cols-[1fr_1.15fr] gap-8 lg:gap-12">
+        <section className="mx-auto max-w-[1320px] px-5 sm:px-8 mt-16 sm:mt-24 grid lg:grid-cols-[1fr_1.15fr] gap-8 lg:gap-12">
           <FadeUp className="rounded-[1.8rem] bg-ink text-cream overflow-hidden flex flex-col">
             <div className="text-aji"><Cenefa weight={2.4} /></div>
             <div className="p-7 sm:p-9 flex-1 flex flex-col">

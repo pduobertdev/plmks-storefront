@@ -72,7 +72,7 @@ export default function Contact() {
                     const today = h.dow === curDow;
                     return (
                       <li key={h.day} className="flex justify-between gap-4"
-                          style={{ color: today ? 'var(--color-aji)' : 'rgba(244,234,214,0.7)' }}>
+                          style={{ color: today ? 'var(--color-aji)' : 'rgba(248,250,252,0.7)' }}>
                         <span className={today ? 'font-semibold' : ''}>
                           {h.day} {today && (lang === 'en' ? '· Today' : '· Hoy')}
                         </span>

@@ -81,92 +81,6 @@ function CatIcon({ nameEn, active }: { nameEn: string; active: boolean }) {
   );
 }
 
-// Seal watermark scatter — sizes doubled, 3× count, opacity bumped for visibility
-const SEALS: { size: number; top: string; side: 'left' | 'right'; offset: string; opacity: number; rotate: number }[] = [
-  // — far left column —
-  { size: 80,  top: '1%',   side: 'left', offset: '-2%', opacity: 0.18, rotate: -12 },
-  { size: 112, top: '5%',   side: 'left', offset: '-3%', opacity: 0.15, rotate: 22  },
-  { size: 64,  top: '10%',  side: 'left', offset: '-1%', opacity: 0.20, rotate: -30 },
-  { size: 96,  top: '15%',  side: 'left', offset: '-3%', opacity: 0.16, rotate: 10  },
-  { size: 56,  top: '20%',  side: 'left', offset: '-1%', opacity: 0.18, rotate: -18 },
-  { size: 128, top: '25%',  side: 'left', offset: '-4%', opacity: 0.14, rotate: 35  },
-  { size: 72,  top: '30%',  side: 'left', offset: '-2%', opacity: 0.19, rotate: -8  },
-  { size: 88,  top: '36%',  side: 'left', offset: '-3%', opacity: 0.15, rotate: 20  },
-  { size: 64,  top: '41%',  side: 'left', offset: '-1%', opacity: 0.18, rotate: -40 },
-  { size: 104, top: '46%',  side: 'left', offset: '-3%', opacity: 0.16, rotate: 15  },
-  { size: 56,  top: '51%',  side: 'left', offset: '-2%', opacity: 0.20, rotate: -22 },
-  { size: 80,  top: '57%',  side: 'left', offset: '-2%', opacity: 0.15, rotate: 28  },
-  { size: 112, top: '62%',  side: 'left', offset: '-4%', opacity: 0.17, rotate: -12 },
-  { size: 64,  top: '68%',  side: 'left', offset: '-1%', opacity: 0.19, rotate: 38  },
-  { size: 88,  top: '73%',  side: 'left', offset: '-3%', opacity: 0.16, rotate: -5  },
-  { size: 56,  top: '79%',  side: 'left', offset: '-1%', opacity: 0.18, rotate: 25  },
-  { size: 96,  top: '84%',  side: 'left', offset: '-3%', opacity: 0.15, rotate: -32 },
-  { size: 72,  top: '89%',  side: 'left', offset: '-2%', opacity: 0.20, rotate: 12  },
-  { size: 80,  top: '94%',  side: 'left', offset: '-2%', opacity: 0.17, rotate: -18 },
-  { size: 56,  top: '98%',  side: 'left', offset: '-1%', opacity: 0.16, rotate: 30  },
-  // — near left column —
-  { size: 48,  top: '3%',   side: 'left', offset: '10%', opacity: 0.17, rotate: 8   },
-  { size: 64,  top: '8%',   side: 'left', offset: '12%', opacity: 0.15, rotate: -15 },
-  { size: 56,  top: '14%',  side: 'left', offset: '9%',  opacity: 0.18, rotate: 22  },
-  { size: 80,  top: '19%',  side: 'left', offset: '13%', opacity: 0.16, rotate: -28 },
-  { size: 48,  top: '24%',  side: 'left', offset: '10%', opacity: 0.20, rotate: 12  },
-  { size: 64,  top: '29%',  side: 'left', offset: '11%', opacity: 0.17, rotate: -5  },
-  { size: 56,  top: '34%',  side: 'left', offset: '9%',  opacity: 0.15, rotate: 32  },
-  { size: 48,  top: '39%',  side: 'left', offset: '12%', opacity: 0.19, rotate: -18 },
-  { size: 80,  top: '44%',  side: 'left', offset: '10%', opacity: 0.16, rotate: 8   },
-  { size: 56,  top: '49%',  side: 'left', offset: '9%',  opacity: 0.18, rotate: -35 },
-  { size: 48,  top: '54%',  side: 'left', offset: '12%', opacity: 0.17, rotate: 20  },
-  { size: 64,  top: '59%',  side: 'left', offset: '10%', opacity: 0.15, rotate: -10 },
-  { size: 80,  top: '64%',  side: 'left', offset: '11%', opacity: 0.19, rotate: 28  },
-  { size: 48,  top: '69%',  side: 'left', offset: '9%',  opacity: 0.16, rotate: -22 },
-  { size: 64,  top: '74%',  side: 'left', offset: '12%', opacity: 0.18, rotate: 15  },
-  { size: 56,  top: '79%',  side: 'left', offset: '10%', opacity: 0.17, rotate: -38 },
-  { size: 80,  top: '84%',  side: 'left', offset: '9%',  opacity: 0.15, rotate: 5   },
-  { size: 48,  top: '89%',  side: 'left', offset: '12%', opacity: 0.20, rotate: -25 },
-  { size: 64,  top: '94%',  side: 'left', offset: '10%', opacity: 0.17, rotate: 18  },
-  // — near right column —
-  { size: 56,  top: '2%',   side: 'right', offset: '11%', opacity: 0.16, rotate: -8  },
-  { size: 80,  top: '7%',   side: 'right', offset: '9%',  opacity: 0.18, rotate: 18  },
-  { size: 48,  top: '12%',  side: 'right', offset: '12%', opacity: 0.17, rotate: -30 },
-  { size: 64,  top: '17%',  side: 'right', offset: '10%', opacity: 0.15, rotate: 10  },
-  { size: 80,  top: '22%',  side: 'right', offset: '9%',  opacity: 0.19, rotate: -15 },
-  { size: 48,  top: '27%',  side: 'right', offset: '11%', opacity: 0.17, rotate: 35  },
-  { size: 64,  top: '32%',  side: 'right', offset: '10%', opacity: 0.16, rotate: -20 },
-  { size: 56,  top: '37%',  side: 'right', offset: '12%', opacity: 0.18, rotate: 8   },
-  { size: 80,  top: '42%',  side: 'right', offset: '9%',  opacity: 0.15, rotate: -38 },
-  { size: 48,  top: '47%',  side: 'right', offset: '11%', opacity: 0.20, rotate: 22  },
-  { size: 64,  top: '52%',  side: 'right', offset: '10%', opacity: 0.17, rotate: -12 },
-  { size: 56,  top: '57%',  side: 'right', offset: '9%',  opacity: 0.18, rotate: 30  },
-  { size: 80,  top: '62%',  side: 'right', offset: '12%', opacity: 0.16, rotate: -5  },
-  { size: 48,  top: '67%',  side: 'right', offset: '10%', opacity: 0.19, rotate: 18  },
-  { size: 64,  top: '72%',  side: 'right', offset: '11%', opacity: 0.17, rotate: -28 },
-  { size: 56,  top: '77%',  side: 'right', offset: '9%',  opacity: 0.15, rotate: 12  },
-  { size: 80,  top: '82%',  side: 'right', offset: '10%', opacity: 0.18, rotate: -40 },
-  { size: 48,  top: '87%',  side: 'right', offset: '12%', opacity: 0.16, rotate: 25  },
-  { size: 64,  top: '92%',  side: 'right', offset: '9%',  opacity: 0.20, rotate: -8  },
-  { size: 56,  top: '97%',  side: 'right', offset: '11%', opacity: 0.17, rotate: 35  },
-  // — far right column —
-  { size: 96,  top: '3%',   side: 'right', offset: '-3%', opacity: 0.16, rotate: 20  },
-  { size: 64,  top: '8%',   side: 'right', offset: '-1%', opacity: 0.19, rotate: -15 },
-  { size: 128, top: '13%',  side: 'right', offset: '-4%', opacity: 0.15, rotate: 30  },
-  { size: 80,  top: '18%',  side: 'right', offset: '-2%', opacity: 0.17, rotate: -25 },
-  { size: 56,  top: '23%',  side: 'right', offset: '-1%', opacity: 0.20, rotate: 8   },
-  { size: 104, top: '28%',  side: 'right', offset: '-3%', opacity: 0.16, rotate: -38 },
-  { size: 72,  top: '33%',  side: 'right', offset: '-2%', opacity: 0.18, rotate: 18  },
-  { size: 88,  top: '38%',  side: 'right', offset: '-3%', opacity: 0.15, rotate: -10 },
-  { size: 64,  top: '43%',  side: 'right', offset: '-1%', opacity: 0.19, rotate: 32  },
-  { size: 112, top: '48%',  side: 'right', offset: '-4%', opacity: 0.16, rotate: -20 },
-  { size: 80,  top: '53%',  side: 'right', offset: '-2%', opacity: 0.18, rotate: 12  },
-  { size: 64,  top: '58%',  side: 'right', offset: '-1%', opacity: 0.17, rotate: -35 },
-  { size: 96,  top: '63%',  side: 'right', offset: '-3%', opacity: 0.15, rotate: 22  },
-  { size: 72,  top: '68%',  side: 'right', offset: '-2%', opacity: 0.19, rotate: -5  },
-  { size: 88,  top: '73%',  side: 'right', offset: '-3%', opacity: 0.17, rotate: 38  },
-  { size: 56,  top: '78%',  side: 'right', offset: '-1%', opacity: 0.20, rotate: -18 },
-  { size: 104, top: '83%',  side: 'right', offset: '-4%', opacity: 0.15, rotate: 10  },
-  { size: 80,  top: '88%',  side: 'right', offset: '-2%', opacity: 0.18, rotate: -30 },
-  { size: 64,  top: '93%',  side: 'right', offset: '-1%', opacity: 0.16, rotate: 25  },
-  { size: 96,  top: '98%',  side: 'right', offset: '-3%', opacity: 0.19, rotate: -12 },
-];
 
 export default function Menu() {
   const [lang, setLang] = useLang();
@@ -201,27 +115,6 @@ export default function Menu() {
     <div>
       <SiteNav lang={lang} setLang={setLang} current="menu" />
       <main className="relative">
-        {/* Seal watermark — scattered background stamps */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none select-none" aria-hidden>
-          {SEALS.map((s, i) => (
-            <img
-              key={i}
-              src={asset('seal.jpg')}
-              alt=""
-              style={{
-                position: 'absolute',
-                width: s.size,
-                height: s.size,
-                top: s.top,
-                [s.side]: s.offset,
-                opacity: s.opacity,
-                transform: `rotate(${s.rotate}deg)`,
-                mixBlendMode: 'multiply',
-              }}
-            />
-          ))}
-        </div>
-
         {/* header */}
         <header className="pt-[150px] pb-12 sm:pb-16 text-center">
           <p className="kicker text-ladrillo flex items-center justify-center gap-3">
@@ -244,7 +137,7 @@ export default function Menu() {
         <div>
           <div
             className="sticky top-[86px] z-30 border-y border-line"
-            style={{ backgroundColor: 'rgb(244,234,214)' }}
+            style={{ backgroundColor: 'var(--color-cream-deep)' }}
           >
             <div className="overflow-x-auto flex no-bar">
               <div className="flex gap-1 px-4 py-2 mx-auto">

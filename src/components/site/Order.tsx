@@ -675,7 +675,7 @@ export default function Order() {
         <div
           ref={navRef}
           className="sticky z-30 border-b border-line overflow-x-auto flex no-bar"
-          style={{ top: storePaused ? 126 : 86, backgroundColor: 'rgb(244,234,214)' }}
+          style={{ top: storePaused ? 126 : 86, backgroundColor: 'var(--color-cream-deep)' }}
         >
           <div className="flex gap-0.5 px-3 py-2 mx-auto">
             {(menu ?? []).map((cat) => {

@@ -12,11 +12,11 @@ export const INFO = {
   established: new Date().getFullYear(),
   address: { street: '123 Main Street', city: 'Anytown, CA 90000' },
   mapUrl: 'https://maps.google.com/?q=123+Main+Street+Anytown+CA',
-  phones: ['(000) 000-0000'],
+  phones: ['(818) 518-4135'],
   social: {
     instagram: 'https://instagram.com/samplebistro',
     facebook: 'https://www.facebook.com/samplebistro',
-    whatsapp: 'https://api.whatsapp.com/send?phone=10000000000',
+    whatsapp: 'https://api.whatsapp.com/send?phone=18185184135',
   },
   pickupMinutes: 30,
 };
